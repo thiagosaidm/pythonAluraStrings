@@ -17,6 +17,7 @@ url = 'https://bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&quantidad
 print(url)
 
 #metodo find() para encontrar o separador da url
+#sintaxe find(' substring ', inicio, fim)
 indice_interrogacao = url.find('?')
 print(indice_interrogacao)
 
