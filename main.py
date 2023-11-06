@@ -13,8 +13,21 @@ print(segundo_nome)
 
 #strings são imutáveis, permitindo apenas a manipulação de uma cópia delas em variáveis
 
+
+
+
 url = 'https://bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&quantidade=100'
 print(url)
+
+#Sanitização da URL
+
+url = url.strip()
+
+#Validação da URL
+
+if (url == ""):
+    raise ValueError("A URL ESTÁ VAZIA")
+
 
 #metodo find() para encontrar o separador da url
 #sintaxe find(' substring ', inicio, fim)
@@ -41,4 +54,8 @@ if(indice_e_comercial == -1):
 else:
     valor = url_parametros[indice_valor:indice_e_comercial]
 print(valor)
+
+
+
+
 
