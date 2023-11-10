@@ -1,13 +1,10 @@
-#Transformando em objeto
-
-#str.startswith e str.endswith e tente utilizá-los para validar a nossa url_base.
+import re
 
 
 class ExtratorURL:
     def __init__(self, url):
         self.url = self.sanitiza_url(url)
         self.valida_url()
-        self.url_existe()
 
     def sanitiza_url(self, url):
         if type(url) == str:
@@ -18,11 +15,12 @@ class ExtratorURL:
     def valida_url(self):
         if not self.url:
             raise ValueError("A URL ESTÁ VAZIA")
+        url = "https://www.bytebank.com.br/cambio"
+        padrao_url = re.compile('(http(s)?://)?(www.)?bytebank.com(.br)?/cambio')
+        match = padrao_url.match(url)
 
-    def url_existe(self):
-        if not (self.url.startswith("https://")):
-            print("digite uma url existente")
-
+        if not match:
+            raise ValueError('URL NÃO É VALIDA')
 
     def get_url_base(self):
         indice_interrogacao = self.url.find('?')
